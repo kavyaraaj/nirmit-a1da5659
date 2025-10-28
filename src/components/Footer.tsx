@@ -1,5 +1,6 @@
 import { Github, Linkedin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/nirmit-labs-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,10 +12,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-                <span className="text-white font-bold text-sm">D</span>
-              </div>
-              <span className="font-semibold text-foreground">Digital Solutions</span>
+              <img src={logo} alt="Nirmit Labs" className="h-8 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
               Design. Develop. Automate. The Future is Intelligent.
@@ -77,7 +75,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Digital Solutions. All rights reserved.
+            © {currentYear} Nirmit Labs. All rights reserved.
           </p>
         </div>
       </div>

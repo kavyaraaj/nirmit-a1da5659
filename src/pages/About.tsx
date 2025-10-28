@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
+import logo from "@/assets/nirmit-labs-logo.png";
 
 const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -58,9 +59,7 @@ const About = () => {
               <div className="glass rounded-3xl p-8 shadow-glass">
                 <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
                   <div className="text-center space-y-4">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-                      <span className="text-4xl font-bold text-white">D</span>
-                    </div>
+                    <img src={logo} alt="Nirmit Labs" className="w-48 h-auto mx-auto" />
                     <p className="text-lg font-semibold text-foreground">Innovation. Precision. Excellence.</p>
                   </div>
                 </div>
