@@ -122,11 +122,11 @@ const Index = () => {
       <section className="py-20 px-4 border-t border-border">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-8 animate-fade-in">
-            <h3 className="text-2xl font-semibold text-muted-foreground">Trusted by Forward-Thinking Companies</h3>
-            <div className="flex flex-wrap justify-center items-center gap-12 opacity-40">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-32 h-12 glass rounded-xl flex items-center justify-center">
-                  <span className="text-muted-foreground font-semibold">Company {i}</span>
+            <h3 className="text-2xl font-semibold text-muted-foreground">Trusted by Forward-Thinking Businesses</h3>
+            <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
+              {["Manju EV Services", "Healthy Tiffin Services", "VG Stores"].map((company) => (
+                <div key={company} className="px-6 py-4 glass rounded-xl flex items-center justify-center">
+                  <span className="text-muted-foreground font-semibold">{company}</span>
                 </div>
               ))}
             </div>
