@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  phone: z.string().trim().max(20, "Phone must be less than 20 characters"),
+  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,28 +22,56 @@ const Contact = () => {
     phone: "",
     message: "",
   });
+  const [webhookUrl, setWebhookUrl] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill in all required fields");
-      return;
+    // Validate form data
+    try {
+      contactSchema.parse(formData);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message);
+        return;
+      }
     }
 
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData);
-    
-    toast.success("Message sent successfully! We'll get back to you within 24 hours.");
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Send to Zapier webhook if configured
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "no-cors",
+          body: JSON.stringify({
+            ...formData,
+            timestamp: new Date().toISOString(),
+            source: "Nirmit Labs Website",
+          }),
+        });
+      }
+
+      toast.success("Message sent successfully! We'll get back to you within 24 hours.");
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to send message. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -124,14 +160,40 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full rounded-full">
-                  Send Message
+                <Button type="submit" size="lg" className="w-full rounded-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
 
                 <p className="text-sm text-center text-muted-foreground">
                   We'll get back to you within 24 hours.
                 </p>
               </form>
+
+              {/* Zapier Webhook Configuration */}
+              <div className="mt-6 p-4 glass rounded-xl">
+                <label htmlFor="webhookUrl" className="text-sm font-medium text-foreground mb-2 block">
+                  Google Sheets Integration (Optional)
+                </label>
+                <Input
+                  id="webhookUrl"
+                  type="url"
+                  value={webhookUrl}
+                  onChange={(e) => setWebhookUrl(e.target.value)}
+                  placeholder="Paste your Zapier webhook URL here"
+                  className="rounded-xl border-border/50"
+                />
+                <p className="text-xs text-muted-foreground mt-2">
+                  Connect this form to Google Sheets via Zapier.{" "}
+                  <a 
+                    href="https://zapier.com/apps/google-sheets/integrations/webhook" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline"
+                  >
+                    Learn how →
+                  </a>
+                </p>
+              </div>
             </div>
 
             {/* Contact Info */}
@@ -146,7 +208,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                      <p className="text-muted-foreground">hello@nirmitlabs.com</p>
+                      <a href="mailto:hellonirmitlabs@gmail.com" className="text-muted-foreground hover:text-accent transition-colors">
+                        hellonirmitlabs@gmail.com
+                      </a>
                     </div>
                   </div>
 
@@ -156,7 +220,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                      <a href="tel:+917517425468" className="text-muted-foreground hover:text-accent transition-colors">
+                        +91 7517425468
+                      </a>
                     </div>
                   </div>
 
@@ -167,9 +233,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Office</h3>
                       <p className="text-muted-foreground">
-                        123 Innovation Street
+                        NirmitLabs Office 1253, Sindhi Colony
                         <br />
-                        San Francisco, CA 94102
+                        Nagpur, Maharashtra - 440017
                       </p>
                     </div>
                   </div>
@@ -197,6 +263,17 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/917517425468?text=Can%20I%20Get%20More%20Info%20On%20This"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 z-50 animate-float"
+        aria-label="Contact us on WhatsApp"
+      >
+        <MessageCircle className="w-6 h-6" />
+      </a>
 
       <Footer />
     </div>
