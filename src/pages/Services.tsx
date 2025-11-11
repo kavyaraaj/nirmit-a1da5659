@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Smartphone, Globe, Sparkles, Code2, Palette, Rocket, Database, Cloud, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import LetterGlitch from "@/components/LetterGlitch";
 
 const Services = () => {
   const services = [
@@ -45,8 +46,15 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen gradient-bg">
-      <Navigation />
+    <div className="min-h-screen relative">
+      <LetterGlitch
+        glitchSpeed={50}
+        centerVignette={true}
+        outerVignette={false}
+        smooth={true}
+      />
+      <div className="relative z-10">
+        <Navigation />
 
       <div className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-7xl">
@@ -134,7 +142,8 @@ const Services = () => {
         </div>
       </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

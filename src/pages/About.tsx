@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
 import logo from "@/assets/nirmit-labs-logo.png";
+import LetterGlitch from "@/components/LetterGlitch";
 
 const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -27,8 +28,15 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen gradient-bg">
-      <Navigation />
+    <div className="min-h-screen relative">
+      <LetterGlitch
+        glitchSpeed={50}
+        centerVignette={true}
+        outerVignette={false}
+        smooth={true}
+      />
+      <div className="relative z-10">
+        <Navigation />
 
       <div className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl" ref={contentRef}>
@@ -117,7 +125,8 @@ const About = () => {
         </div>
       </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
+import LetterGlitch from "@/components/LetterGlitch";
 
 const Index = () => {
   const services = [
@@ -32,8 +33,15 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen gradient-bg">
-      <Navigation />
+    <div className="min-h-screen relative">
+      <LetterGlitch
+        glitchSpeed={50}
+        centerVignette={true}
+        outerVignette={false}
+        smooth={true}
+      />
+      <div className="relative z-10">
+        <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
@@ -134,7 +142,8 @@ const Index = () => {
         </div>
       </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

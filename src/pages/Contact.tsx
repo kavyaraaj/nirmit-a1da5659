@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { z } from "zod";
+import LetterGlitch from "@/components/LetterGlitch";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -82,8 +83,15 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen gradient-bg">
-      <Navigation />
+    <div className="min-h-screen relative">
+      <LetterGlitch
+        glitchSpeed={50}
+        centerVignette={true}
+        outerVignette={false}
+        smooth={true}
+      />
+      <div className="relative z-10">
+        <Navigation />
 
       <div className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
@@ -275,7 +283,19 @@ const Contact = () => {
         <MessageCircle className="w-6 h-6" />
       </a>
 
-      <Footer />
+        <Footer />
+      </div>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/917517425468?text=Can%20I%20Get%20More%20Info%20On%20This"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 z-50 animate-float"
+        aria-label="Contact us on WhatsApp"
+      >
+        <MessageCircle className="w-6 h-6" />
+      </a>
     </div>
   );
 };
