@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import LetterGlitch from "@/components/LetterGlitch";
+import Prism from "@/components/Prism";
 
 const NotFound = () => {
   const location = useLocation();
@@ -11,12 +11,19 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center relative">
-      <LetterGlitch
-        glitchSpeed={50}
-        centerVignette={true}
-        outerVignette={false}
-        smooth={true}
-      />
+      <div className="fixed inset-0 w-full h-full -z-10">
+        <Prism
+          animationType="rotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0.5}
+          glow={1}
+        />
+      </div>
       <div className="relative z-10 text-center">
         <h1 className="mb-4 text-4xl font-bold text-foreground">404</h1>
         <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>

@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
 import logo from "@/assets/nirmit-labs-logo.png";
-import LetterGlitch from "@/components/LetterGlitch";
+import Prism from "@/components/Prism";
 
 const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -29,12 +29,19 @@ const About = () => {
 
   return (
     <div className="min-h-screen relative">
-      <LetterGlitch
-        glitchSpeed={50}
-        centerVignette={true}
-        outerVignette={false}
-        smooth={true}
-      />
+      <div className="fixed inset-0 w-full h-full -z-10">
+        <Prism
+          animationType="rotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0.5}
+          glow={1}
+        />
+      </div>
       <div className="relative z-10">
         <Navigation />
 
