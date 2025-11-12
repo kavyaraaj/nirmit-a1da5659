@@ -54,7 +54,7 @@ const Index = () => {
               <br />
               Web, Apps & AI
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
               We help businesses turn ideas into scalable digital solutions with precision, design, and intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -83,7 +83,7 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Our Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-white max-w-2xl mx-auto">
               Comprehensive digital solutions tailored to your business needs
             </p>
           </div>
@@ -130,11 +130,11 @@ const Index = () => {
       <section className="py-20 px-4 border-t border-border">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-8 animate-fade-in">
-            <h3 className="text-2xl font-semibold text-muted-foreground">Trusted by Forward-Thinking Businesses</h3>
+            <h3 className="text-2xl font-semibold text-white">Trusted by Forward-Thinking Businesses</h3>
             <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
               {["Manju EV Services", "Healthy Tiffin Services", "VG Stores"].map((company) => (
                 <div key={company} className="px-6 py-4 glass rounded-xl flex items-center justify-center">
-                  <span className="text-muted-foreground font-semibold">{company}</span>
+                  <span className="text-white font-semibold">{company}</span>
                 </div>
               ))}
             </div>
