@@ -4,8 +4,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
-import DarkVeil from "@/components/DarkVeil";
+import Iridescence from "@/components/Iridescence";
 import TiltedCard from "@/components/TiltedCard";
+import StarBorder from "@/components/StarBorder";
 
 const Index = () => {
   const services = [
@@ -36,13 +37,11 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <DarkVeil 
-          speed={0.5}
-          hueShift={0}
-          noiseIntensity={0.02}
-          scanlineIntensity={0}
-          scanlineFrequency={0}
-          warpAmount={0}
+        <Iridescence 
+          color={[0.2, 0.3, 0.5]}
+          speed={1.0}
+          amplitude={0.1}
+          mouseReact={true}
         />
       </div>
       <div className="relative z-10">
@@ -137,11 +136,18 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-8 animate-fade-in">
             <h3 className="text-2xl font-semibold text-white">Trusted by Forward-Thinking Businesses</h3>
-            <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
+            <div className="flex flex-wrap justify-center items-center gap-12">
               {["Manju EV Services", "Healthy Tiffin Services", "VG Stores"].map((company) => (
-                <div key={company} className="px-6 py-4 glass rounded-xl flex items-center justify-center">
+                <StarBorder 
+                  key={company}
+                  as="div"
+                  color="rgba(255, 255, 255, 0.8)"
+                  speed="6s"
+                  thickness={1}
+                  className="w-auto"
+                >
                   <span className="text-white font-semibold">{company}</span>
-                </div>
+                </StarBorder>
               ))}
             </div>
           </div>

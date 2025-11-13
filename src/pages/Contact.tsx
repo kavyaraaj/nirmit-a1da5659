@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { z } from "zod";
-import DarkVeil from "@/components/DarkVeil";
+import Iridescence from "@/components/Iridescence";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -85,13 +85,11 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <DarkVeil 
-          speed={0.5}
-          hueShift={0}
-          noiseIntensity={0.02}
-          scanlineIntensity={0}
-          scanlineFrequency={0}
-          warpAmount={0}
+        <Iridescence 
+          color={[0.2, 0.3, 0.5]}
+          speed={1.0}
+          amplitude={0.1}
+          mouseReact={true}
         />
       </div>
       <div className="relative z-10">

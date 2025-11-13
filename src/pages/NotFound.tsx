@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import DarkVeil from "@/components/DarkVeil";
+import Iridescence from "@/components/Iridescence";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,13 +12,11 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <DarkVeil 
-          speed={0.5}
-          hueShift={0}
-          noiseIntensity={0.02}
-          scanlineIntensity={0}
-          scanlineFrequency={0}
-          warpAmount={0}
+        <Iridescence 
+          color={[0.2, 0.3, 0.5]}
+          speed={1.0}
+          amplitude={0.1}
+          mouseReact={true}
         />
       </div>
       <div className="relative z-10 text-center">
