@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { z } from "zod";
-import Prism from "@/components/Prism";
+import DarkVeil from "@/components/DarkVeil";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -85,16 +85,13 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
+        <DarkVeil 
+          speed={0.5}
           hueShift={0}
-          colorFrequency={1}
-          noise={0.5}
-          glow={1}
+          noiseIntensity={0.02}
+          scanlineIntensity={0}
+          scanlineFrequency={0}
+          warpAmount={0}
         />
       </div>
       <div className="relative z-10">

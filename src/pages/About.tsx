@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
 import logo from "@/assets/nirmit-labs-logo.png";
-import Prism from "@/components/Prism";
+import DarkVeil from "@/components/DarkVeil";
+import TiltedCard from "@/components/TiltedCard";
 
 const About = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -30,16 +31,13 @@ const About = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
+        <DarkVeil 
+          speed={0.5}
           hueShift={0}
-          colorFrequency={1}
-          noise={0.5}
-          glow={1}
+          noiseIntensity={0.02}
+          scanlineIntensity={0}
+          scanlineFrequency={0}
+          warpAmount={0}
         />
       </div>
       <div className="relative z-10">
@@ -101,14 +99,15 @@ const About = () => {
                   description: "We never compromise on quality. Every line of code, every pixel, every interaction is crafted with care."
                 }
               ].map((value, index) => (
-                <div 
-                  key={value.title}
-                  className="glass glass-hover rounded-2xl p-8 text-center space-y-4"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <h3 className="text-xl font-semibold text-foreground">{value.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-                </div>
+                <TiltedCard key={value.title}>
+                  <div 
+                    className="glass glass-hover rounded-2xl p-8 text-center space-y-4 h-full"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <h3 className="text-xl font-semibold text-foreground">{value.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                  </div>
+                </TiltedCard>
               ))}
             </div>
           </div>

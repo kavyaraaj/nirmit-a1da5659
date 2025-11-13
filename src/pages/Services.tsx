@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Smartphone, Globe, Sparkles, Code2, Palette, Rocket, Database, Cloud, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import Prism from "@/components/Prism";
+import DarkVeil from "@/components/DarkVeil";
 
 const Services = () => {
   const services = [
@@ -48,16 +48,13 @@ const Services = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
+        <DarkVeil 
+          speed={0.5}
           hueShift={0}
-          colorFrequency={1}
-          noise={0.5}
-          glow={1}
+          noiseIntensity={0.02}
+          scanlineIntensity={0}
+          scanlineFrequency={0}
+          warpAmount={0}
         />
       </div>
       <div className="relative z-10">

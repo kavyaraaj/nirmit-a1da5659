@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Prism from "@/components/Prism";
+import DarkVeil from "@/components/DarkVeil";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,16 +12,13 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
+        <DarkVeil 
+          speed={0.5}
           hueShift={0}
-          colorFrequency={1}
-          noise={0.5}
-          glow={1}
+          noiseIntensity={0.02}
+          scanlineIntensity={0}
+          scanlineFrequency={0}
+          warpAmount={0}
         />
       </div>
       <div className="relative z-10 text-center">

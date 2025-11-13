@@ -4,7 +4,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
-import Prism from "@/components/Prism";
+import DarkVeil from "@/components/DarkVeil";
+import TiltedCard from "@/components/TiltedCard";
 
 const Index = () => {
   const services = [
@@ -35,16 +36,13 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
+        <DarkVeil 
+          speed={0.5}
           hueShift={0}
-          colorFrequency={1}
-          noise={0.5}
-          glow={1}
+          noiseIntensity={0.02}
+          scanlineIntensity={0}
+          scanlineFrequency={0}
+          warpAmount={0}
         />
       </div>
       <div className="relative z-10">
@@ -117,16 +115,17 @@ const Index = () => {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div
-                  key={feature.text}
-                  className="flex items-center gap-4 p-6 glass rounded-2xl animate-slide-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-accent" />
+                <TiltedCard key={feature.text}>
+                  <div
+                    className="flex items-center gap-4 p-6 glass rounded-2xl animate-slide-up h-full"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <span className="text-lg font-medium text-foreground">{feature.text}</span>
                   </div>
-                  <span className="text-lg font-medium text-foreground">{feature.text}</span>
-                </div>
+                </TiltedCard>
               ))}
             </div>
           </div>
