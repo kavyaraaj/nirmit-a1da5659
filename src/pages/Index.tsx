@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
-import Iridescence from "@/components/Iridescence";
+import { GridScan } from "@/components/GridScan";
 import TiltedCard from "@/components/TiltedCard";
 import StarBorder from "@/components/StarBorder";
 
@@ -37,11 +37,17 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Iridescence 
-          color={[0.2, 0.3, 0.5]}
-          speed={1.0}
-          amplitude={0.1}
-          mouseReact={true}
+        <GridScan 
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#392e4e"
+          gridScale={0.1}
+          scanColor="#FF9FFC"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
         />
       </div>
       <div className="relative z-10">
@@ -83,7 +89,7 @@ const Index = () => {
       </section>
 
       {/* Services Snapshot */}
-      <section className="py-20 px-4">
+      <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Our Services</h2>
