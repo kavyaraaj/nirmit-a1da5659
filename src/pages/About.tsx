@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
 import logo from "@/assets/nirmit-labs-logo.png";
-import { GridScan } from "@/components/GridScan";
+import Iridescence from "@/components/Iridescence";
 import TiltedCard from "@/components/TiltedCard";
 
 const About = () => {
@@ -31,17 +31,11 @@ const About = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <GridScan 
-          sensitivity={0.55}
-          lineThickness={1}
-          linesColor="#392e4e"
-          gridScale={0.1}
-          scanColor="#FF9FFC"
-          scanOpacity={0.4}
-          enablePost
-          bloomIntensity={0.6}
-          chromaticAberration={0.002}
-          noiseIntensity={0.01}
+        <Iridescence 
+          color={[0.2, 0.3, 0.5]}
+          speed={1.0}
+          amplitude={0.1}
+          mouseReact={true}
         />
       </div>
       <div className="relative z-10">

@@ -3,9 +3,7 @@ import Footer from "@/components/Footer";
 import { Smartphone, Globe, Sparkles, Code2, Palette, Rocket, Database, Cloud, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { GridScan } from "@/components/GridScan";
-import CardSwap, { Card } from "@/components/CardSwap";
-import Stack from "@/components/Stack";
+import Iridescence from "@/components/Iridescence";
 
 const Services = () => {
   const services = [
@@ -50,17 +48,11 @@ const Services = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <GridScan 
-          sensitivity={0.55}
-          lineThickness={1}
-          linesColor="#392e4e"
-          gridScale={0.1}
-          scanColor="#FF9FFC"
-          scanOpacity={0.4}
-          enablePost
-          bloomIntensity={0.6}
-          chromaticAberration={0.002}
-          noiseIntensity={0.01}
+        <Iridescence 
+          color={[0.2, 0.3, 0.5]}
+          speed={1.0}
+          amplitude={0.1}
+          mouseReact={true}
         />
       </div>
       <div className="relative z-10">
@@ -76,44 +68,41 @@ const Services = () => {
             </p>
           </div>
 
-          {/* Services Cards */}
-          <div className="relative h-[600px] mb-32">
-            <CardSwap
-              cardDistance={60}
-              verticalDistance={70}
-              delay={5000}
-              pauseOnHover={true}
-              width={400}
-              height={500}
-            >
-              {services.map((service, index) => (
-                <Card key={index}>
-                  <div className="p-8 space-y-6 h-full flex flex-col">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
-                      <service.icon className="w-8 h-8 text-accent" />
-                    </div>
-                    
-                    <div className="space-y-3 flex-1">
-                      <h3 className="text-2xl font-semibold text-white">{service.title}</h3>
-                      <p className="text-white/80 leading-relaxed">{service.description}</p>
-                    </div>
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {services.map((service, index) => (
+              <div
+                key={service.title}
+                className="glass glass-hover rounded-3xl p-8 space-y-6 animate-slide-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                  <service.icon className="w-8 h-8 text-accent" />
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-semibold text-foreground">{service.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                </div>
 
-                    <div className="space-y-2 pt-4">
-                      {service.features.map((feature) => (
-                        <div key={feature} className="flex items-center gap-2 text-sm text-white/70">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
+                <div className="space-y-2 pt-4">
+                  {service.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      <span>{feature}</span>
                     </div>
-                  </div>
-                </Card>
-              ))}
-            </CardSwap>
+                  ))}
+                </div>
+
+                <Button asChild variant="outline" className="w-full rounded-full mt-6">
+                  <Link to="/contact">Learn More</Link>
+                </Button>
+              </div>
+            ))}
           </div>
 
           {/* Process Section */}
-          <div className="glass rounded-3xl p-12 space-y-12 animate-fade-in relative">
+          <div className="glass rounded-3xl p-12 space-y-12 animate-fade-in">
             <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">Our Process</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -139,26 +128,6 @@ const Services = () => {
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Stack Component */}
-            <div className="flex flex-col items-center justify-center pt-12 space-y-6">
-              <div className="text-center">
-                <p className="text-lg text-white font-medium">Explore Our Work</p>
-                <p className="text-sm text-white/60 mt-2">Drag cards left or right to explore</p>
-              </div>
-              <Stack
-                randomRotation={true}
-                sensitivity={180}
-                sendToBackOnClick={false}
-                cardDimensions={{ width: 200, height: 200 }}
-                cardsData={[
-                  { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
-                  { id: 2, img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" },
-                  { id: 3, img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format" },
-                  { id: 4, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" }
-                ]}
-              />
             </div>
           </div>
 
