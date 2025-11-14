@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Iridescence from "@/components/Iridescence";
+import { GridScan } from "@/components/GridScan";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,11 +12,17 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Iridescence 
-          color={[0.2, 0.3, 0.5]}
-          speed={1.0}
-          amplitude={0.1}
-          mouseReact={true}
+        <GridScan 
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#392e4e"
+          gridScale={0.1}
+          scanColor="#FF9FFC"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
         />
       </div>
       <div className="relative z-10 text-center">
