@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Iridescence from "@/components/Iridescence";
+import Pattern from "@/components/Pattern";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,12 +12,7 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen items-center justify-center relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Iridescence 
-          color={[0.2, 0.3, 0.5]}
-          speed={1.0}
-          amplitude={0.1}
-          mouseReact={true}
-        />
+        <Pattern />
       </div>
       <div className="relative z-10 text-center">
         <h1 className="mb-4 text-4xl font-bold text-foreground">404</h1>
