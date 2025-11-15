@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
 import logo from "@/assets/nirmit-labs-logo.png";
-import Iridescence from "@/components/Iridescence";
+import Pattern from "@/components/Pattern";
 import TiltedCard from "@/components/TiltedCard";
 
 const About = () => {
@@ -31,12 +31,7 @@ const About = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Iridescence 
-          color={[0.2, 0.3, 0.5]}
-          speed={1.0}
-          amplitude={0.1}
-          mouseReact={true}
-        />
+        <Pattern />
       </div>
       <div className="relative z-10">
         <Navigation />

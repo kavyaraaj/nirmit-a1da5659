@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Smartphone, Globe, Sparkles, Code2, Palette, Rocket, Database, Cloud, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import Iridescence from "@/components/Iridescence";
+import Pattern from "@/components/Pattern";
 
 const Services = () => {
   const services = [
@@ -48,12 +48,7 @@ const Services = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Iridescence 
-          color={[0.2, 0.3, 0.5]}
-          speed={1.0}
-          amplitude={0.1}
-          mouseReact={true}
-        />
+        <Pattern />
       </div>
       <div className="relative z-10">
         <Navigation />

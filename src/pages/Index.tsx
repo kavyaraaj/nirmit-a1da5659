@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
-import Iridescence from "@/components/Iridescence";
+import Pattern from "@/components/Pattern";
 import TiltedCard from "@/components/TiltedCard";
 import StarBorder from "@/components/StarBorder";
 
@@ -37,12 +37,7 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Iridescence 
-          color={[0.2, 0.3, 0.5]}
-          speed={1.0}
-          amplitude={0.1}
-          mouseReact={true}
-        />
+        <Pattern />
       </div>
       <div className="relative z-10">
         <Navigation />

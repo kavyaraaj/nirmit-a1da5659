@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { z } from "zod";
-import Iridescence from "@/components/Iridescence";
+import Pattern from "@/components/Pattern";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -85,12 +85,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full -z-10">
-        <Iridescence 
-          color={[0.2, 0.3, 0.5]}
-          speed={1.0}
-          amplitude={0.1}
-          mouseReact={true}
-        />
+        <Pattern />
       </div>
       <div className="relative z-10">
         <Navigation />
