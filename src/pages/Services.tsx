@@ -4,6 +4,8 @@ import { Smartphone, Globe, Sparkles, Code2, Palette, Rocket, Database, Cloud, S
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Pattern from "@/components/Pattern";
+import { GlowCard } from "@/components/GlowCard";
+import Stepper, { Step } from "@/components/Stepper";
 
 const Services = () => {
   const services = [
@@ -66,33 +68,37 @@ const Services = () => {
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             {services.map((service, index) => (
-              <div
+              <GlowCard
                 key={service.title}
-                className="glass glass-hover rounded-3xl p-8 space-y-6 animate-slide-up"
+                glowColor={index % 2 === 0 ? 'purple' : 'blue'}
+                customSize
+                className="animate-slide-up w-full h-auto aspect-auto"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
-                  <service.icon className="w-8 h-8 text-accent" />
-                </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-semibold text-foreground">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                </div>
+                <div className="p-8 space-y-6 h-full flex flex-col">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                    <service.icon className="w-8 h-8 text-foreground" />
+                  </div>
+                  
+                  <div className="space-y-3 flex-grow">
+                    <h3 className="text-2xl font-semibold text-foreground">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  </div>
 
-                <div className="space-y-2 pt-4">
-                  {service.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                  <div className="space-y-2 pt-4">
+                    {service.features.map((feature) => (
+                      <div key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                <Button asChild variant="outline" className="w-full rounded-full mt-6">
-                  <Link to="/contact">Learn More</Link>
-                </Button>
-              </div>
+                  <Button asChild variant="outline" className="w-full rounded-full mt-6">
+                    <Link to="/contact">Learn More</Link>
+                  </Button>
+                </div>
+              </GlowCard>
             ))}
           </div>
 
@@ -105,25 +111,58 @@ const Services = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                { icon: Code2, title: "Discovery", description: "Understanding your vision and requirements" },
-                { icon: Palette, title: "Design", description: "Creating intuitive and beautiful interfaces" },
-                { icon: Rocket, title: "Development", description: "Building with cutting-edge technologies" },
-                { icon: Cloud, title: "Launch", description: "Deploying and scaling your solution" }
-              ].map((step, index) => (
-                <div key={step.title} className="text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center relative">
-                    <step.icon className="w-8 h-8 text-accent" />
-                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold">
-                      {index + 1}
-                    </div>
+            <Stepper
+              initialStep={1}
+              onStepChange={(step) => console.log('Current step:', step)}
+              onFinalStepCompleted={() => console.log("Process completed!")}
+              backButtonText="Previous"
+              nextButtonText="Next"
+            >
+              <Step>
+                <div className="space-y-4">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                    <Code2 className="w-8 h-8 text-foreground" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-foreground text-center">Discovery</h3>
+                  <p className="text-sm text-muted-foreground text-center">
+                    We start by understanding your vision, requirements, and business goals to create a comprehensive project roadmap.
+                  </p>
                 </div>
-              ))}
-            </div>
+              </Step>
+              <Step>
+                <div className="space-y-4">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                    <Palette className="w-8 h-8 text-foreground" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground text-center">Design</h3>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Creating intuitive and beautiful interfaces that prioritize user experience and align with your brand identity.
+                  </p>
+                </div>
+              </Step>
+              <Step>
+                <div className="space-y-4">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                    <Rocket className="w-8 h-8 text-foreground" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground text-center">Development</h3>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Building with cutting-edge technologies and best practices to ensure scalability, performance, and maintainability.
+                  </p>
+                </div>
+              </Step>
+              <Step>
+                <div className="space-y-4">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                    <Cloud className="w-8 h-8 text-foreground" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground text-center">Launch</h3>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Deploying and scaling your solution with ongoing support to ensure continued success and growth.
+                  </p>
+                </div>
+              </Step>
+            </Stepper>
           </div>
 
           {/* CTA Section */}
