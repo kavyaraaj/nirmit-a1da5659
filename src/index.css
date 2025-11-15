@@ -8,34 +8,34 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Apple-inspired minimal palette */
-    --background: 220 15% 98%;
-    --foreground: 220 10% 7%;
+    /* Darker color scheme for white background */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 10% 7%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 7%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 220 10% 7%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 220 10% 7%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 215 65% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 215 65% 50%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 215 65% 60%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 215 65% 50%;
 
     --radius: 1rem;
 
@@ -44,7 +44,7 @@ All colors MUST be HSL.
     --glass-border: 220 15% 90% / 0.3;
     --gradient-start: 220 15% 99%;
     --gradient-end: 215 70% 97%;
-    --gradient-accent: 215 65% 60%;
+    --gradient-accent: 215 65% 50%;
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
