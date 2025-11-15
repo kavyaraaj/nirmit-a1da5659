@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Pattern from "@/components/Pattern";
 import TiltedCard from "@/components/TiltedCard";
 import StarBorder from "@/components/StarBorder";
+import { GlowCard } from "@/components/GlowCard";
 
 const Index = () => {
   const services = [
@@ -94,7 +95,13 @@ const Index = () => {
                 className="animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <ServiceCard {...service} />
+                <GlowCard
+                  glowColor={index === 0 ? 'blue' : index === 1 ? 'purple' : 'green'}
+                  customSize={true}
+                  className="w-full h-full"
+                >
+                  <ServiceCard {...service} />
+                </GlowCard>
               </div>
             ))}
           </div>
@@ -130,7 +137,7 @@ const Index = () => {
       <section className="py-20 px-4 border-t border-border">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-8 animate-fade-in">
-            <h3 className="text-2xl font-semibold text-white">Trusted by Forward-Thinking Businesses</h3>
+            <h3 className="text-2xl font-semibold text-foreground">Trusted by Forward-Thinking Businesses</h3>
             <div className="flex flex-wrap justify-center items-center gap-12">
               {["Manju EV Services", "Healthy Tiffin Services", "VG Stores"].map((company) => (
                 <StarBorder 
