@@ -54,7 +54,7 @@ const Index = () => {
               <br />
               Web, Apps & AI
             </h1>
-            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
               We help businesses turn ideas into scalable digital solutions with precision, design, and intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -83,7 +83,7 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Our Services</h2>
-            <p className="text-lg text-white max-w-2xl mx-auto">
+            <p className="text-lg text-foreground max-w-2xl mx-auto">
               Comprehensive digital solutions tailored to your business needs
             </p>
           </div>
