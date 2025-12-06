@@ -90,19 +90,19 @@ const Contact = () => {
       <div className="relative z-10">
         <Navigation />
 
-      <div className="pt-32 pb-20 px-4">
+      <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">Get in Touch</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-10 sm:mb-16 animate-fade-in">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 sm:mb-6">Get in Touch</h1>
+            <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
               Have a project in mind? Let's discuss how we can help bring your vision to life.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
             {/* Contact Form */}
-            <div className="glass rounded-3xl p-8 md:p-12 shadow-glass animate-slide-up">
+            <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-glass animate-slide-up">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -202,8 +202,8 @@ const Contact = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-              <div className="glass rounded-3xl p-8 space-y-6">
+            <div className="space-y-4 sm:space-y-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+              <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 space-y-4 sm:space-y-6">
                 <h2 className="text-2xl font-bold text-foreground">Contact Information</h2>
                 
                 <div className="space-y-4">
@@ -247,8 +247,8 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="glass rounded-3xl p-8">
-                <h3 className="text-xl font-semibold text-foreground mb-4">Business Hours</h3>
+              <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 sm:mb-4">Business Hours</h3>
                 <div className="space-y-2 text-muted-foreground">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>

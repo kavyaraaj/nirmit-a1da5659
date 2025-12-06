@@ -44,34 +44,34 @@ const Index = () => {
         <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-8 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
+          <div className="text-center space-y-6 sm:space-y-8 animate-fade-in">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-foreground leading-tight">
               Building Intelligent
               <br />
               <span className="gradient-text">Experiences with</span>
               <br />
               Web, Apps & AI
             </h1>
-            <p className="text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl text-foreground max-w-3xl mx-auto leading-relaxed px-2">
               We help businesses turn ideas into scalable digital solutions with precision, design, and intelligence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Button asChild size="lg" className="rounded-full px-8 group">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4">
+              <Button asChild size="lg" className="rounded-full px-6 sm:px-8 w-full sm:w-auto group">
                 <Link to="/contact">
                   Get Started
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-8">
+              <Button asChild size="lg" variant="outline" className="rounded-full px-6 sm:px-8 w-full sm:w-auto">
                 <Link to="/services">View Services</Link>
               </Button>
             </div>
           </div>
 
-          {/* Floating Elements */}
-          <div className="relative mt-20 h-32">
+          {/* Floating Elements - Hidden on mobile for performance */}
+          <div className="relative mt-12 sm:mt-20 h-20 sm:h-32 hidden sm:block">
             <div className="absolute top-0 left-1/4 w-20 h-20 bg-accent/20 rounded-full blur-2xl animate-float" />
             <div className="absolute top-10 right-1/4 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
           </div>
@@ -79,16 +79,16 @@ const Index = () => {
       </section>
 
       {/* Services Snapshot */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Our Services</h2>
-            <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-10 sm:mb-16 animate-slide-up">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">Our Services</h2>
+            <p className="text-base sm:text-lg text-foreground max-w-2xl mx-auto px-2">
               Comprehensive digital solutions tailored to your business needs
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {services.map((service, index) => (
               <div
                 key={service.title}
@@ -109,22 +109,22 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center space-y-12 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">Why Choose Us</h2>
+          <div className="text-center space-y-8 sm:space-y-12 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Why Choose Us</h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {features.map((feature, index) => (
                 <TiltedCard key={feature.text}>
                   <div
-                    className="flex items-center gap-4 p-6 glass rounded-2xl animate-slide-up h-full"
+                    className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 glass rounded-2xl animate-slide-up h-full"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-6 h-6 text-accent" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                     </div>
-                    <span className="text-lg font-medium text-foreground">{feature.text}</span>
+                    <span className="text-base sm:text-lg font-medium text-foreground">{feature.text}</span>
                   </div>
                 </TiltedCard>
               ))}
@@ -134,11 +134,11 @@ const Index = () => {
       </section>
 
       {/* Trusted By Section */}
-      <section className="py-20 px-4 border-t border-border">
+      <section className="py-12 sm:py-20 px-4 border-t border-border">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-8 animate-fade-in">
-            <h3 className="text-2xl font-semibold text-foreground">Trusted by Forward-Thinking Businesses</h3>
-            <div className="flex flex-wrap justify-center items-center gap-12">
+          <div className="text-center space-y-6 sm:space-y-8 animate-fade-in">
+            <h3 className="text-xl sm:text-2xl font-semibold text-foreground">Trusted by Forward-Thinking Businesses</h3>
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-12">
               {["Manju EV Services", "Healthy Tiffin Services", "VG Stores"].map((company) => (
                 <StarBorder 
                   key={company}
@@ -148,7 +148,7 @@ const Index = () => {
                   thickness={1}
                   className="w-auto"
                 >
-                  <span className="text-white font-semibold">{company}</span>
+                  <span className="text-white font-semibold text-sm sm:text-base">{company}</span>
                 </StarBorder>
               ))}
             </div>
